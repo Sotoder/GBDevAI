@@ -85,6 +85,7 @@ public class Enemy : IEnemy, IEnemyWithFightState
                 _crimeModifier = 5;
                 break;
             case 4:
+            case 5:
                 _crimeModifier = 7;
                 break;
         }

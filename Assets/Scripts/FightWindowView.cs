@@ -216,7 +216,7 @@ public class FightWindowView : MonoBehaviour
     {
         if(isAddCount)
         {
-            if (_allCrimeLevel < 4)
+            if (_allCrimeLevel < 5)
             _allCrimeLevel++;
         }
         else
@@ -256,7 +256,7 @@ public class FightWindowView : MonoBehaviour
 
     private void BuyCrimeLevel()
     {
-        int cost = 0;
+        var cost = 0;
         switch (_allCrimeLevel)
         {
             case 1:
@@ -265,6 +265,7 @@ public class FightWindowView : MonoBehaviour
                 break;
             case 3:
             case 4:
+            case 5:
                 cost = 10;
                 break;
         }
