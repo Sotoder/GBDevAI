@@ -9,7 +9,7 @@ public class Enemy : IEnemy, IEnemyWithFightState
     private int _healthPlayer;
     private int _powerPlayer;
     private int _crimeLevelPlayer;
-    private int _crimeModifier;
+    private float _crimeModifier;
 
     private EnemyFightStateHandler _enemyFightStateHandler;
     private IFightState _fightState;
@@ -76,17 +76,17 @@ public class Enemy : IEnemy, IEnemyWithFightState
         {
             case 0:
             case 1:
-                _crimeModifier = 2;
+                _crimeModifier = 1;
                 break;
             case 2:
-                _crimeModifier = 3;
+                _crimeModifier = 1.3f;
                 break;
             case 3:
-                _crimeModifier = 5;
+                _crimeModifier = 1.5f;
                 break;
             case 4:
             case 5:
-                _crimeModifier = 7;
+                _crimeModifier = 1.7f;
                 break;
         }
     }

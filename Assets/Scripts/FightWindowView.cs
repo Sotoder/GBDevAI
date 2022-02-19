@@ -70,6 +70,8 @@ public class FightWindowView : MonoBehaviour
 
     private int _winsCount;
 
+    private const int WIN_COUN_TO_UP_CRIME = 5;
+
     private void Start()
     {
         _enemy = new Enemy("Flappy");
@@ -125,10 +127,10 @@ public class FightWindowView : MonoBehaviour
         _gunToggle.onValueChanged.RemoveAllListeners();
         _knifeToogle.onValueChanged.RemoveAllListeners();
 
-        _overallMoney.Detach(_enemy);
-        _health.Detach(_enemy);
-        _power.Detach(_enemy);
-        _crimeLevel.Detach(_enemy);
+        _overallMoney?.Detach(_enemy);
+        _health?.Detach(_enemy);
+        _power?.Detach(_enemy);
+        _crimeLevel?.Detach(_enemy);
     }
 
     private void Fight()
@@ -137,7 +139,7 @@ public class FightWindowView : MonoBehaviour
         {
             Debug.Log("Win");
             _winsCount++;
-            if (_winsCount % 5 == 0)
+            if (_winsCount % WIN_COUN_TO_UP_CRIME == 0)
             {
                 ChangeCrimeLevel(true, false);
             }
@@ -241,6 +243,10 @@ public class FightWindowView : MonoBehaviour
             _gunToggle.isOn = false;
             _enemy.ChangeFightState(FightStates.Knife);
             ChangeDataWindow();
+        } 
+        else
+        {
+            if (!_gunToggle.isOn) _knifeToogle.isOn = true;
         }
     }
 
@@ -251,6 +257,10 @@ public class FightWindowView : MonoBehaviour
             _knifeToogle.isOn = false;
             _enemy.ChangeFightState(FightStates.Gun);
             ChangeDataWindow();
+        }
+        else
+        {
+            if (!_knifeToogle.isOn) _gunToggle.isOn = true;
         }
     }
 
